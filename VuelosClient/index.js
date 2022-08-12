@@ -1,37 +1,8 @@
 const API_URL = 'http://localhost:5179/api/'
-let consecutivos = []
 let paises = []
 let puertas = []
 let aerolineas = []
 
-const getConsecutivo = () => {
-  fetch(API_URL+'consecutivos')
-    .then((response) => response.json())
-    .then((data) => {
-      consecutivos = data
-      renderConsecutivo(consecutivos)
-      console.log(data)
-    })
-}
-
-const renderConsecutivo = (consecutivos) =>{
-  const consecutivoTable = document.querySelector('#consecutivoBody')
-  let consecutivoHTML = ''
-  consecutivos.forEach((consecutivos) => {
-    consecutivoHTML += `
-      <tr>
-        <td>${consecutivos['idConsecutivo']}</td>
-        <td>${consecutivos['valor']}</td>
-        <td>${consecutivos['descripcion']}</td>
-        <td>${consecutivos['prefijo']}</td>
-        <td>${consecutivos['rangoInicial']}</td>
-        <td>${consecutivos['rangoFinal']}</td>
-        <td class="text-center"> <a class="btnEdit btn btn-primary">Edit</a> <a class="btnDelete btn btn-danger">Delete</a> </td>
-      </tr>
-      `
-  })
-  consecutivoTable.innerHTML = consecutivoHTML
-}
 
 const getPais = () => {
   fetch(API_URL+'paises')
@@ -109,7 +80,6 @@ const renderAerolinea = (aerolineas) =>{
   consecutivoTable.innerHTML = aerolineaHTML
 }
 
-getConsecutivo()
+
 getPais()
 getPuerta()
-getAerolinea()
