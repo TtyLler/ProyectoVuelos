@@ -1,41 +1,44 @@
-const API_URL = 'http://localhost:5179/api/aerolineas/'
-let aerolineas = []
-const modalAerolinea = new bootstrap.Modal(document.getElementById('aerolineaModal'))
-const formAerolinea = document.getElementById('aerolineaForm')
-const codigoAerolinea = document.getElementById('codAerolinea')
-const nombreAerolinea = document.getElementById('nombreAerolinea')
+const API_URL = 'http://localhost:5179/api/puertas/'
+let puertas = []
+const modalAerolinea = new bootstrap.Modal(document.getElementById('puertaModal'))
+const formPuerta = document.getElementById('puertaForm')
+const codigoPuerta = document.getElementById('codPuerta')
+const numeroPuerta = document.getElementById('numPuerta')
+const detallePuerta = document.getElementById('detalle')
 let opcion = ''
 
-btnCrearAerolinea.addEventListener('click', ()=>{
-  codigoAerolinea.value = ''
-  nombreAerolinea.value = ''
+btnCrearPuerta.addEventListener('click', ()=>{
+  codigoPuerta.value = ''
+  numeroPuerta.value = ''
+  detallePuerta.value = ''
   opcion = 'crear'
   modalArticulo.show()
 })
 
-const getAerolinea = () => {
+const getPuerta = () => {
   fetch(API_URL)
     .then((response) => response.json())
     .then((data) => {
-      aerolineas = data
-      renderAerolinea(aerolineas)
+      puertas = data
+      renderPuerta(puertas)
       console.log(data)
     })
 }
 
-const renderAerolinea = (aerolineas) =>{
-  const aerolineaTable = document.querySelector('#aerolineasBody')
-  let aerolineaHTML = ''
-  aerolineas.forEach((aerolinea) => {
-    aerolineaHTML += `
+const renderPuerta = (puertas) =>{
+  const puertaTable = document.querySelector('#puertaBody')
+  let puertaHTML = ''
+  puertas.forEach((puerta) => {
+    puertaHTML += `
       <tr>
-        <td>${aerolinea['codAerolinea']}</td>
-        <td>${aerolinea['nombre']}</td>
+        <td>${puerta['codPuerta']}</td>
+        <td>${puerta['numPuerta']}</td>
+        <td>${puerta['detalle']}</td>
         <td class="text-center"> <a class="btnEdit btn btn-primary">Edit</a> <a class="btnDelete btn btn-danger">Delete</a> </td>
       </tr>
       `
   })
-  aerolineaTable.innerHTML = aerolineaHTML
+  puertaTable.innerHTML = puertaHTML
 }
 
 const on = (element, event, selector, handler) => {
@@ -70,15 +73,19 @@ on(document,'click', '.btnEdit', e =>{
   const fila = e.target.parentNode.parentNode
   idform = fila.children[0].innerHTML
   const nombre = fila.children[1].innerHTML
+  const detalle = fila.children[2].innerHTML
 
-  codigoAerolinea.value = idform
-  nombreAerolinea.value = nombre
+  console.log(detalle)
+
+  codigoPuerta.value = idform
+  numeroPuerta.value = nombre
+  detallePuerta.value = detalle
   opcion = 'editar'
   modalAerolinea.show()
 })
 
 //Funciones para crear y Editar
-formAerolinea.addEventListener('submit',(e) => {
+formPuerta.addEventListener('submit',(e) => {
   e.preventDefault()
   if(opcion=='crear'){
     fetch(API_URL, {
@@ -87,8 +94,9 @@ formAerolinea.addEventListener('submit',(e) => {
           'Content-Type':'application/json'
       },
       body: JSON.stringify({
-          codAerolinea:codigoAerolinea.value,
-          nombre:nombreAerolinea.value,
+          codPuerta:codigoPuerta.value,
+          numPuerta:numeroPuerta.value,
+          detalle:detallePuerta.value
       })
     })
     .then( response => response.json() )
@@ -104,8 +112,9 @@ formAerolinea.addEventListener('submit',(e) => {
         'Content-Type':'application/json'
       },
       body: JSON.stringify({
-        codAerolinea:codigoAerolinea.value,
-        nombre:nombreAerolinea.value,
+          codPuerta:codigoPuerta.value,
+          numPuerta:numeroPuerta.value,
+          detalle:detallePuerta.value
       })
     })
     .then(response => response.json())
@@ -113,5 +122,4 @@ formAerolinea.addEventListener('submit',(e) => {
   modalAerolinea.hide()
 })
 
-
-getAerolinea()
+getPuerta()

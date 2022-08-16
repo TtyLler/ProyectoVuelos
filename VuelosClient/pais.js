@@ -1,41 +1,41 @@
-const API_URL = 'http://localhost:5179/api/aerolineas/'
+const API_URL = 'http://localhost:5179/api/paises/'
 let aerolineas = []
-const modalAerolinea = new bootstrap.Modal(document.getElementById('aerolineaModal'))
-const formAerolinea = document.getElementById('aerolineaForm')
-const codigoAerolinea = document.getElementById('codAerolinea')
-const nombreAerolinea = document.getElementById('nombreAerolinea')
+const modalAerolinea = new bootstrap.Modal(document.getElementById('paisModal'))
+const formPais = document.getElementById('paisForm')
+const codigoPais = document.getElementById('codPais')
+const nombrePais= document.getElementById('nombrePais')
 let opcion = ''
 
-btnCrearAerolinea.addEventListener('click', ()=>{
-  codigoAerolinea.value = ''
-  nombreAerolinea.value = ''
+btnCrearPais.addEventListener('click', ()=>{
+  codigoPais.value = ''
+  nombrePais.value = ''
   opcion = 'crear'
   modalArticulo.show()
 })
 
-const getAerolinea = () => {
+const getPais = () => {
   fetch(API_URL)
     .then((response) => response.json())
     .then((data) => {
-      aerolineas = data
-      renderAerolinea(aerolineas)
+      paises = data
+      renderPais(paises)
       console.log(data)
     })
 }
 
-const renderAerolinea = (aerolineas) =>{
-  const aerolineaTable = document.querySelector('#aerolineasBody')
-  let aerolineaHTML = ''
-  aerolineas.forEach((aerolinea) => {
-    aerolineaHTML += `
+const renderPais = (paises) =>{
+  const paisTable = document.querySelector('#paisBody')
+  let paisHTML = ''
+  paises.forEach((pais) => {
+    paisHTML += `
       <tr>
-        <td>${aerolinea['codAerolinea']}</td>
-        <td>${aerolinea['nombre']}</td>
+        <td>${pais['codPais']}</td>
+        <td>${pais['nombre']}</td>
         <td class="text-center"> <a class="btnEdit btn btn-primary">Edit</a> <a class="btnDelete btn btn-danger">Delete</a> </td>
       </tr>
       `
   })
-  aerolineaTable.innerHTML = aerolineaHTML
+  paisTable.innerHTML = paisHTML
 }
 
 const on = (element, event, selector, handler) => {
@@ -71,14 +71,14 @@ on(document,'click', '.btnEdit', e =>{
   idform = fila.children[0].innerHTML
   const nombre = fila.children[1].innerHTML
 
-  codigoAerolinea.value = idform
-  nombreAerolinea.value = nombre
+  codigoPais.value = idform
+  nombrePais.value = nombre
   opcion = 'editar'
   modalAerolinea.show()
 })
 
 //Funciones para crear y Editar
-formAerolinea.addEventListener('submit',(e) => {
+formPais.addEventListener('submit',(e) => {
   e.preventDefault()
   if(opcion=='crear'){
     fetch(API_URL, {
@@ -87,8 +87,8 @@ formAerolinea.addEventListener('submit',(e) => {
           'Content-Type':'application/json'
       },
       body: JSON.stringify({
-          codAerolinea:codigoAerolinea.value,
-          nombre:nombreAerolinea.value,
+          codPais:codigoPais.value,
+          nombre:nombrePais.value,
       })
     })
     .then( response => response.json() )
@@ -104,8 +104,8 @@ formAerolinea.addEventListener('submit',(e) => {
         'Content-Type':'application/json'
       },
       body: JSON.stringify({
-        codAerolinea:codigoAerolinea.value,
-        nombre:nombreAerolinea.value,
+          codPais:codigoPais.value,
+          nombre:nombrePais.value,
       })
     })
     .then(response => response.json())
@@ -114,4 +114,4 @@ formAerolinea.addEventListener('submit',(e) => {
 })
 
 
-getAerolinea()
+getPais()

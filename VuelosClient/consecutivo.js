@@ -12,8 +12,12 @@ const rfConsecutivo = document.getElementById('rfConsecutivo')
 let opcion = ''
 
 btnCrearConsecutivo.addEventListener('click', ()=>{
-  codigoAerolinea.value = ''
-  nombreAerolinea.value = ''
+  idConsecutivo.value = ''
+  valorConsecutivo.value = ''
+  descripcionConsecutivo.value = ''
+  prefijoConsecutivo.value = ''
+  riConsecutivo.value = ''
+  rfConsecutivo.value = ''
   opcion = 'crear'
   modalArticulo.show()
 })
