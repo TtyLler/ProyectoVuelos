@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:5179/api/paises/'
-let aerolineas = []
-const modalAerolinea = new bootstrap.Modal(document.getElementById('paisModal'))
+let paises = []
+const modalPais = new bootstrap.Modal(document.getElementById('paisModal'))
 const formPais = document.getElementById('paisForm')
 const codigoPais = document.getElementById('codPais')
 const nombrePais= document.getElementById('nombrePais')
@@ -10,7 +10,7 @@ btnCrearPais.addEventListener('click', ()=>{
   codigoPais.value = ''
   nombrePais.value = ''
   opcion = 'crear'
-  modalArticulo.show()
+  modalPais.show()
 })
 
 const getPais = () => {
@@ -74,7 +74,7 @@ on(document,'click', '.btnEdit', e =>{
   codigoPais.value = idform
   nombrePais.value = nombre
   opcion = 'editar'
-  modalAerolinea.show()
+  modalPais.show()
 })
 
 //Funciones para crear y Editar
@@ -93,8 +93,8 @@ formPais.addEventListener('submit',(e) => {
     })
     .then( response => response.json() )
     .then( data => {
-      aerolineas.push(data)
-      renderAerolinea(aerolineas)
+      paises.push(data)
+      renderAerolinea(paises)
   })
   }
   if(opcion=='editar'){
@@ -110,7 +110,7 @@ formPais.addEventListener('submit',(e) => {
     })
     .then(response => response.json())
   }
-  modalAerolinea.hide()
+  modalPais.hide()
 })
 
 

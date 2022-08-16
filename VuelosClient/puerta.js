@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:5179/api/puertas/'
 let puertas = []
-const modalAerolinea = new bootstrap.Modal(document.getElementById('puertaModal'))
+const modalPuerta = new bootstrap.Modal(document.getElementById('puertaModal'))
 const formPuerta = document.getElementById('puertaForm')
 const codigoPuerta = document.getElementById('codPuerta')
 const numeroPuerta = document.getElementById('numPuerta')
@@ -12,7 +12,7 @@ btnCrearPuerta.addEventListener('click', ()=>{
   numeroPuerta.value = ''
   detallePuerta.value = ''
   opcion = 'crear'
-  modalArticulo.show()
+  modalPuerta.show()
 })
 
 const getPuerta = () => {
@@ -81,7 +81,7 @@ on(document,'click', '.btnEdit', e =>{
   numeroPuerta.value = nombre
   detallePuerta.value = detalle
   opcion = 'editar'
-  modalAerolinea.show()
+  modalPuerta.show()
 })
 
 //Funciones para crear y Editar
@@ -101,8 +101,8 @@ formPuerta.addEventListener('submit',(e) => {
     })
     .then( response => response.json() )
     .then( data => {
-      aerolineas.push(data)
-      renderAerolinea(aerolineas)
+      puertas.push(data)
+      renderAerolinea(puertas)
   })
   }
   if(opcion=='editar'){
@@ -119,7 +119,7 @@ formPuerta.addEventListener('submit',(e) => {
     })
     .then(response => response.json())
   }
-  modalAerolinea.hide()
+  modalPuerta.hide()
 })
 
 getPuerta()

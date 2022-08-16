@@ -1,7 +1,7 @@
 const API_URL = 'http://localhost:5179/api/consecutivos/'
 let consecutivos = []
-const modalAerolinea = new bootstrap.Modal(document.getElementById('consecutivoModal'))
-const formAerolinea = document.getElementById('consecutivoForm')
+const modalConsecutivo = new bootstrap.Modal(document.getElementById('consecutivoModal'))
+const formConsecutivo = document.getElementById('consecutivoForm')
 //Inputs
 const idConsecutivo = document.getElementById('idConsecutivo')
 const valorConsecutivo = document.getElementById('valorConsecutivo')
@@ -19,7 +19,7 @@ btnCrearConsecutivo.addEventListener('click', ()=>{
   riConsecutivo.value = ''
   rfConsecutivo.value = ''
   opcion = 'crear'
-  modalArticulo.show()
+  modalConsecutivo.show()
 })
 
 const getConsecutivo = () => {
@@ -97,11 +97,11 @@ on(document,'click', '.btnEdit', e =>{
   rfConsecutivo.value = rangoFinal
 
   opcion = 'editar'
-  modalAerolinea.show()
+  modalConsecutivo.show()
 })
 
 //Funciones para crear y Editar
-formAerolinea.addEventListener('submit',(e) => {
+formConsecutivo.addEventListener('submit',(e) => {
   e.preventDefault()
   if(opcion=='crear'){
     fetch(API_URL, {
@@ -119,8 +119,8 @@ formAerolinea.addEventListener('submit',(e) => {
     })
     .then( response => response.json() )
     .then( data => {
-      aerolineas.push(data)
-      renderAerolinea(aerolineas)
+      consecutivos.push(data)
+      renderConsecutivo(consecutivos)
   })
   }
   if(opcion=='editar'){
