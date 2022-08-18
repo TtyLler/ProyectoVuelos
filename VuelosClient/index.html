@@ -23,15 +23,17 @@
     <div class="grid-container">
         <div class="grid-item">
             <form id="form_login" action="">
-                <h3 class="titulo_logIn">LogIn</h3>                
+                <h3 class="titulo_logIn">Iniciar Sesión</h3>                
                 <br>
                 <input type="text" name="input_usuario" id="input_usuario" placeholder="Usuario">
                 <br>
                 <input type="password" name="input_password" id="input_password" placeholder="Contraseña">
                 <br>
             </form>
-            <a href="cliente/mainPage_Cliente.html">
-                <button style="font-size: medium;">LogIn</button>
+            <a>
+                <button style="font-size: medium;" id="btn_loginUser"">Iniciar Sesión</button>
+                <button style="font-size: medium;" id="btn_loginUser"" class="btn_Registro" onclick="mostrar_registro()">
+                    Registro</button>
             </a>
         </div>
 
@@ -39,7 +41,7 @@
             <div id="vertical"></div>
         </div>
 
-        <div class="grid-item">
+        <div class="grid-registro" id="box_registro">
             <form id="form_registro" action="">
                 <h3 class="titulo_logIn" style="margin-bottom: -30px;">Registro</h3>
                 <br>
@@ -56,7 +58,7 @@
                 <br>
                 <input type="password" name="input_passRegistro" id="input_passRegistro" placeholder="Contraseña">
                 <br>
-                <button>
+                <button type="submit" id="btn_registro_cliente">
                     Registrarse
                 </button>
             </form>
@@ -67,5 +69,6 @@
         <h4>Proyecto Vuelos</h4>
     </footer>
 
+    <script src="./cliente_login.js"></script>
 </body>
 </html>

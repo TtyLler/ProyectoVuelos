@@ -1,5 +1,7 @@
 body{
     background-color: lightcyan;
+    width: 100%;
+    min-height: 100vh;
 }
 
 #cabecera{
@@ -89,6 +91,13 @@ body{
     margin-top: -10px;
     font-size: medium;
 }
+
+.grid-registro {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    display: none;
+  }
 
 .titulo_logIn{
     font-family: Arial, Helvetica, sans-serif;
@@ -214,4 +223,10 @@ th{
     padding-left: 40px;
     margin-top: 20px;
     font-style: oblique;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }

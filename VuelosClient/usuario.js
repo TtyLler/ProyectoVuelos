@@ -152,3 +152,5 @@ formUsuario.addEventListener('submit',(e) => {
 })
 
 getUsuario()
+
+//cerrar sesion
