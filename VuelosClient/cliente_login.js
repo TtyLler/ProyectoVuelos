@@ -39,3 +39,16 @@ async function validationUser(){
 }
 
 getUsuario();
+
+//esconder registro
+
+function mostrar_registro() {
+    const div = document.getElementById('box_registro');
+    if(div.style.display == 'block'){
+        div.style.display = 'none';
+    } else {
+        div.style.display ='block';
+    }
+};
+
+
