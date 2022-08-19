@@ -7,7 +7,6 @@ const getUsuario=()=>{
     .then((data) => {
         usuarios = data
         validationUser();
-        console.log(usuarios)
     })
 }
 
@@ -15,7 +14,6 @@ async function validationUser(){
     const login_btn = document.getElementById('btn_loginUser');
     const user = document.getElementById('input_usuario');
     const password = document.getElementById('input_password');
-    const usuario = usuarios[2]
 
     login_btn.addEventListener("click", prueba=()=>{
         if(!user.value){
@@ -26,7 +24,7 @@ async function validationUser(){
         }
 
         usuarios.forEach((usuario) => {
-            if(user.value == usuario.nombre){
+            if(user.value == usuario.usuario1){
                 if(password.value == usuario.contrasena){
                     window.open("./cliente/mainPage_cliente.html", "_self")
                 }else{
@@ -42,13 +40,17 @@ getUsuario();
 
 //esconder registro
 
-function mostrar_registro() {
-    const div = document.getElementById('box_registro');
-    if(div.style.display == 'block'){
-        div.style.display = 'none';
-    } else {
-        div.style.display ='block';
-    }
-};
+/*async function mostrar_registro() {
+    const register_btn = document.getElementById('btn_registerUser')
+
+    register_btn.addEventListener("click", registration =()=>{
+        const div = document.getElementById('box_registro');
+        if(div.style.display == 'block'){
+            div.style.display = 'none';
+        } else {
+            div.style.display ='block';
+        }
+    })
+};*/
 
 
