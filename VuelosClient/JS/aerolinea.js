@@ -10,7 +10,7 @@ btnCrearAerolinea.addEventListener('click', ()=>{
   codigoAerolinea.value = ''
   nombreAerolinea.value = ''
   opcion = 'crear'
-  modalArticulo.show()
+  modalAerolinea.show()
 })
 
 const getAerolinea = () => {
