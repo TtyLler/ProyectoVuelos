@@ -24,19 +24,42 @@ async function validationUser(){
         }
 
         usuarios.forEach((usuario) => {
-            if(user.value == usuario.usuario1){
-                if(password.value == usuario.contrasena){
-                    window.open("./cliente/mainPage_cliente.html", "_self")
-                }else{
-                    alert('Contraseña o Usuario incorrectos! Intente de nuevo')
-                    window.location.reload()
+            if(usuario.rol == 1){
+                if(user.value == usuario.usuario1){
+                    if(password.value == usuario.contrasena){
+                        clear()
+                        window.open("./admin/mainPage_Admin.html", "_self")
+                    }else{
+                        clear()
+                        alert('Contraseña o Usuario incorrectos! Intente de nuevo')
+                        window.location.reload()
+                    }
                 }
             }
+
+            if(usuario.rol == 2){
+                if(user.value == usuario.usuario1){
+                    if(password.value == usuario.contrasena){
+                        clear()
+                        window.open("./cliente/mainPage_cliente.html", "_self")
+                    }else{
+                        clear()
+                        alert('Contraseña o Usuario incorrectos! Intente de nuevo')
+                        window.location.reload()
+                    }
+                }
+            }
+
         });
     })
 }
 
 getUsuario();
+
+function clear(){
+    document.getElementById("input_usuario").value = "",
+    document.getElementById("input_password").value = ""
+  }
 
 //esconder registro
 

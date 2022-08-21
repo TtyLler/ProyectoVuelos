@@ -49,8 +49,7 @@ function registration(e){
   }
 
   if(!name || !last_name1 || !email || !user || !password ){
-    //alert('Ingrese todos los datos necesarios!')
-    alert(datos.constrasena)
+    alert('Ingrese todos los datos necesarios!')
   }else{
     e.preventDefault();
     fetch(API_URL, {
@@ -69,6 +68,15 @@ function registration(e){
     )
   }
 }
+
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
 
 function clear(){
   document.getElementById("input_nombre").value = "",
