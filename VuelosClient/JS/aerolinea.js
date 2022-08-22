@@ -10,6 +10,7 @@ btnCrearAerolinea.addEventListener('click', ()=>{
   codigoAerolinea.value = ''
   nombreAerolinea.value = ''
   opcion = 'crear'
+  getConsecutivo()
   modalAerolinea.show()
 })
 
@@ -113,5 +114,31 @@ formAerolinea.addEventListener('submit',(e) => {
   modalAerolinea.hide()
 })
 
+const getConsecutivo = () => {
+  fetch('http://localhost:5179/api/consecutivos/2')
+    .then((response) => response.json())
+    .then((data) => {
+      const valor = data['valor'] + 1
+      updateConsecutivo(valor)
+    })
+
+}
+updateConsecutivo = (newValue) => {
+  fetch('http://localhost:5179/api/consecutivos/2', {
+    method: 'PUT',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify({
+      idConsecutivo: 2,
+      valor: newValue,
+      descripcion: "Contenido de Aerolineas",
+      prefijo: "AE",
+      rangoInicial: 1,
+      rangoFinal: 11
+    })
+  })
+  .then(response => response.json())
+}
 
 getAerolinea()
