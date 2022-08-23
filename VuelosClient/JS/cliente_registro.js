@@ -46,7 +46,8 @@ function registration(e){
     fetch(API_URL, {
       method:'POST',
       headers: {
-          'Content-Type':'application/json'
+          'Content-Type':'application/json',
+          'Accept':'application/json'
       },
       body: JSON.stringify({
         nombre: name,
@@ -67,6 +68,15 @@ function registration(e){
     )
   }
 }
+
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
 
 function clear(){
   document.getElementById("input_nombre").value = "",
