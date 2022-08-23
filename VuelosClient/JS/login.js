@@ -59,21 +59,24 @@ getUsuario();
 function clear(){
     document.getElementById("input_usuario").value = "",
     document.getElementById("input_password").value = ""
-  }
+}
 
 //esconder registro
 
-/*async function mostrar_registro() {
+async function mostrar_registro() {
     const register_btn = document.getElementById('btn_registerUser')
 
     register_btn.addEventListener("click", registration =()=>{
         const div = document.getElementById('box_registro');
+        const div2 = document.getElementById('vertical');
         if(div.style.display == 'block'){
             div.style.display = 'none';
+            div2.style.display = 'none';
         } else {
             div.style.display ='block';
+            div2.style.display='block';
         }
     })
-};*/
+};
 
 
