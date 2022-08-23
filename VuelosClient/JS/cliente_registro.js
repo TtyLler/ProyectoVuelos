@@ -38,19 +38,9 @@ function registration(e){
   const email = document.getElementById("input_correo").value;
   const user = document.getElementById("input_usuarioRegistro").value;
   const password = document.getElementById("input_passRegistro").value;
-  let datos = {
-    nombre: name,
-    apellido1: last_name1,
-    apellido2: last_name2,
-    correo: email,
-    usuario1: user,
-    constrasena: password,
-    rol: 2
-  }
 
   if(!name || !last_name1 || !email || !user || !password ){
-    //alert('Ingrese todos los datos necesarios!')
-    alert(datos.constrasena)
+    alert('Ingrese todos los datos necesarios!')
   }else{
     e.preventDefault();
     fetch(API_URL, {
@@ -58,7 +48,15 @@ function registration(e){
       headers: {
           'Content-Type':'application/json'
       },
-      body: JSON.stringify(datos)
+      body: JSON.stringify({
+        nombre: name,
+        apellido1: last_name1,
+        apellido2: last_name2,
+        correo: email,
+        usuario1: user,
+        constrasena: password,
+        rol: 2
+      })
     })
   
     .then( response => response.json())
