@@ -61,22 +61,23 @@
         </ul>
     </div>
     
-    <div >
+    <div class="div_consecutivo">
+        <h4>Comprar</h4>
         <div>
-            <label>Seleccione cantidad</label>
-            <button onclick="CalcularMonto()">+</button>
+            <label>Seleccione cantidad de boletos > </label>
+            <button class="btn btn-primary" onclick="CalcularMonto()">Agregar un boleto</button>
             <label id="renderCantidadBoletos"></label>
             <label id="renderCantidad"></label>
-            <label id="renderMonto">Monto a pagar</label>
+        <div>
+            <label>Monto a pagar: $</label>
+            <label id="renderMonto"></label>
             <input type="hidden" id="cantidadMonto" value="0">
             <input type="hidden" id="cantidadHiddenBoleto" value="0">
         </div>
-    </div>
-    
-    <div class="div_consecutivo">
+
+        </div>
         <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded">
             <label>Vuelo</label>
-            <button>Confirmar compra</button>
             </select>
             <table id="salidasTable" class="table mt-2 table-bordered table-striped">
               <thead>
@@ -96,6 +97,13 @@
               </tbody>
             </table>
         </div>
+        <h3>
+            <button class="btn btn-success">Confirmar compra</button>
+        </h3>
+    </div>
+
+    <div>
+
     </div>
 
 

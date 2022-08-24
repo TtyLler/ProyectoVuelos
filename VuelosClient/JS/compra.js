@@ -25,7 +25,7 @@ const getVueloSalidas = () => {
           <td>${vuelo['estado']}</td>
           <td>${vuelo['codPuerta']}</td>
           <td>${vuelo['monto']}</td>
-          <td><button onclick="SeleccionarVuelo(${vuelo['monto']})">Seleccionar</button></td>
+          <td><button class="btn btn-primary" onclick="SeleccionarVuelo(${vuelo['monto']})">Seleccionar</button></td>
         </tr>
         `
     }})
