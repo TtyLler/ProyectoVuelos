@@ -26,6 +26,7 @@ async function validationUser(){
         usuarios.forEach((usuario) => {
             if(user.value == usuario.usuario1){
                 if(password.value == usuario.contrasena){
+                    //localStorage.setItem("idusuario",1);
                     window.open("./cliente/mainPage_cliente.html", "_self")
                 }else{
                     alert('Contraseña o Usuario incorrectos! Intente de nuevo')
