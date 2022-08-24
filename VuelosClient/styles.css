@@ -12,6 +12,10 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+header > a{
+    margin-right: 20px;
+}
+
 #logo_avion{
     height: 30px;
     width: 30px;
@@ -31,6 +35,7 @@ body{
     color: black;
     background-color: black;
     height: 2px;
+    margin-bottom: 50px;
 }
 
 .footer {
@@ -38,7 +43,7 @@ body{
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 80px;
+    height: 115px;
     background-color: lightblue;
     color: black;
     text-align: right;
@@ -55,29 +60,29 @@ body{
     padding-top: 0px;
   }
   
-  .grid-item {
+.grid-item {
     padding: 20px;
     font-size: 30px;
     text-align: center;
-  }
+}
 
-  #vertical {
+#vertical {
     border-left: 6px solid black;
-    height: 350px;
+    height: 550px;
     position: absolute;
-    left: 50%;
+    left: 45%;
     margin-left: -3px;
     top: 100;
-  }
+    display: none;
+}
 
 #form_login > input{
     margin-bottom: 10px;
     font-size: medium;
 }
 
-#form_login > a{
-    margin-bottom: 10px;
-    font-size: medium;
+#box_registro{
+    display: none;
 }
 
 #form_registro > input{
@@ -90,6 +95,12 @@ body{
     margin-bottom: 5px;
     margin-top: -10px;
     font-size: medium;
+    display: inline-block;
+}
+
+.g-signin2{
+    margin-left: 430px;
+    margin-top: 200px;
 }
 
 .grid-registro {

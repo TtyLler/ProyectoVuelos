@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="545394252931-ebiotodua1q16alfgv4pjdakqcthruk7.apps.googleusercontent.com">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles.css">
@@ -15,13 +16,9 @@
         <img src="./images/avion.png" alt="Logo" id="logo_avion"> Proyecto V-Vuelos
     </header>
     <hr id="separador_cabecera">
-
-    <a href="admin/loginAdmin.html">
-        <button id="btn_logAdmin">LogIn Administrador</button>
-    </a>
-
+    
     <div class="grid-container">
-        <div class="grid-item">
+        <div class="grid-item" id="login_grid">
             <form id="form_login" action="">
                 <h3 class="titulo_logIn">Iniciar Sesión</h3>                
                 <br>
@@ -32,7 +29,7 @@
             </form>
 
                 <button style="font-size: medium;" id="btn_loginUser"">Iniciar Sesión</button>
-                <button style="font-size: medium;" id="btn_registerUser"" class="btn_Registro">
+                <button style="font-size: medium;" id="btn_registerUser"" class="btn_Registro" onclick="mostrar_registro()">
                     Registro
                 </button>
 
@@ -42,7 +39,7 @@
             <div id="vertical"></div>
         </div>
 
-        <div class="grid-item">
+        <div class="grid-item" id="box_registro">
             <form id="form_registro" action="">
                 <h3 class="titulo_logIn" style="margin-bottom: -30px;">Registro</h3>
                 <br>
@@ -62,6 +59,8 @@
                 <button type="submit" id="btn_registro_cliente">
                     Registrarse
                 </button>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
             </form>
         </div>
     </div>    
@@ -70,7 +69,8 @@
         <h4>Proyecto Vuelos</h4>
     </footer>
 
-    <script src="./JS/cliente_login.js"></script>
+    <script src="./JS/login.js"></script>
     <script src="./JS/cliente_registro.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 </html>

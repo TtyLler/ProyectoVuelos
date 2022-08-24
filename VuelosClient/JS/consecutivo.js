@@ -140,7 +140,7 @@ formConsecutivo.addEventListener('submit',(e) => {
     })
     .then(response => response.json())
   }
-  modalAerolinea.hide()
+  modalConsecutivo.hide()
 })
 
 getConsecutivo()

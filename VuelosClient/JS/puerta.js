@@ -12,6 +12,7 @@ btnCrearPuerta.addEventListener('click', ()=>{
   numeroPuerta.value = ''
   detallePuerta.value = ''
   opcion = 'crear'
+  getConsecutivo()
   modalPuerta.show()
 })
 
@@ -121,5 +122,32 @@ formPuerta.addEventListener('submit',(e) => {
   }
   modalPuerta.hide()
 })
+
+const getConsecutivo = () => {
+  fetch('http://localhost:5179/api/consecutivos/3')
+    .then((response) => response.json())
+    .then((data) => {
+      const valor = data['valor'] + 1
+      updateConsecutivo(valor)
+    })
+
+}
+updateConsecutivo = (newValue) => {
+  fetch('http://localhost:5179/api/consecutivos/3', {
+    method: 'PUT',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify({
+      idConsecutivo: 3,
+      valor: newValue,
+      descripcion: "Contenido de Puertas",
+      prefijo: "PT",
+      rangoInicial: 1,
+      rangoFinal: 10
+    })
+  })
+  .then(response => response.json())
+}
 
 getPuerta()
