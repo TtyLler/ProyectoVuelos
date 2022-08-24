@@ -1,6 +1,9 @@
 const API_URL = 'http://localhost:5179/api/vuelos/'
 let vuelos = []
 
+const btn_regis = document.getElementById('btn_reserva');
+let valor = 0;
+
 const getVueloSalidas = () => {
     fetch(API_URL)
       .then((response) => response.json())
@@ -48,8 +51,10 @@ function CalcularMonto(){
     const valorCantidad = parseFloat(document.getElementById('cantidadHiddenBoletoReserva').value) + 1;
     document.getElementById('cantidadHiddenBoletoReserva').value = valorCantidad.toString();
     document.getElementById('renderCantidadBoletoReserva').innerHTML = valorCantidad.toString() + " Boletos";
-    const valor = parseFloat(valorCantidad)*parseFloat(valorMonto);
-    document.getElementById('renderMontoReserva').innerHTML = valor.toString();
+    let valorFinal = parseFloat(valorCantidad)*parseFloat(valorMonto);
+    document.getElementById('renderMontoReserva').innerHTML = valorFinal
+
+    valor = valorFinal;
 }
 
 //Seleccionar vuelo
@@ -60,5 +65,11 @@ function SeleccionarVueloReserva(monto){
     document.getElementById('cantidadMontoReserva').value = monto;
 }
 
-
 //confirmar reserva
+  btn_regis.addEventListener('click', prueba=()=>{
+    let monto = valor;
+    let usuario = localStorage.getItem('user');
+    alert('Reserva realizada por '+(usuario)+' por un monto total de $'+(monto))
+  })
+
+
