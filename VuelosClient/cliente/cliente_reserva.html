@@ -60,14 +60,45 @@
         </ul>
     </div>
     
-    <div id="div_transaccion">
+    <div class="div_consecutivo">
         <h4>Reservar</h4>
-        <grid>
-            <h6>País</h6>
-            <select name="País" id="selectPais">
+        <div>
+            <label>Seleccione cantidad de boletos > </label>
+            <button class="btn btn-primary" onclick="CalcularMonto()">Agregar un boleto</button>
+            <label id="renderCantidadBoletoReserva"></label>
+            <label id="renderCantidad"></label>
+        <div>
+            <label>Monto a pagar: $</label>
+            <label id="renderMontoReserva"></label>
+            <input type="hidden" id="cantidadMontoReserva" value="0">
+            <input type="hidden" id="cantidadHiddenBoletoReserva" value="0">
+        </div>
 
+        </div>
+        <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded">
+            <label>Vuelo</label>
             </select>
-        </grid>
+            <table id="salidasTable" class="table mt-2 table-bordered table-striped">
+              <thead>
+                <tr class="text-center">
+                  <th>Vuelo</th>
+                  <th>Aerolinea</th>
+                  <th>Destino</th>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Estado</th>
+                  <th>Puerta</th>
+                  <th>Monto</th>
+                </tr>
+              </thead>
+              <tbody id="salidasVuelosReserva">
+      
+              </tbody>
+            </table>
+        </div>
+        <h3>
+            <button class="btn btn-success">Confirmar reserva</button>
+        </h3>
     </div>
 
 
