@@ -16,6 +16,7 @@ async function validationUser(){
     const password = document.getElementById('input_password');
 
     login_btn.addEventListener("click", prueba=()=>{
+        localStorage.setItem("user", user.value);
         if(!user.value){
             alert('Ingrese un usuario!')
         }
@@ -27,6 +28,7 @@ async function validationUser(){
             if(usuario.rol == 1){
                 if(user.value == usuario.usuario1){
                     if(password.value == usuario.contrasena){
+                        
                         clear()
                         window.open("./admin/mainPage_Admin.html", "_self")
                     }else{

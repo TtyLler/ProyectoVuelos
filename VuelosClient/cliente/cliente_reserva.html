@@ -60,19 +60,49 @@
         </ul>
     </div>
     
-    <div id="div_transaccion">
+    <div class="div_consecutivo">
         <h4>Reservar</h4>
-        <grid>
-            <h6>País</h6>
-            <select name="País" id="selectPais">
+        <div>
+            <label>Seleccione cantidad de boletos > </label>
+            <button class="btn btn-primary" onclick="CalcularMonto()">Agregar un boleto</button>
+            <label id="renderCantidadBoletoReserva"></label>
+            <label id="renderCantidad"></label>
+        <div>
+            <label>Monto a pagar: $</label>
+            <label id="renderMontoReserva"></label>
+            <input type="hidden" id="cantidadMontoReserva" value="0">
+            <input type="hidden" id="cantidadHiddenBoletoReserva" value="0">
+        </div>
 
+        </div>
+        <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded" style="width: 900px;">
+            <label>Vuelo</label>
             </select>
-        </grid>
+            <table id="salidasTable" class="table mt-2 table-bordered table-striped">
+              <thead>
+                <tr class="text-center">
+                  <th>Vuelo</th>
+                  <th>Aerolinea</th>
+                  <th>Destino</th>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Estado</th>
+                  <th>Puerta</th>
+                  <th>Monto</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="salidasVuelosReserva">
+      
+              </tbody>
+            </table>
+        </div>
+
+        <button class="btn btn-success" id="btn_reserva">Confirmar reserva</button>
+
     </div>
 
-    <footer class="footer">
-        <h4>Proyecto Vuelos</h4>
-    </footer>
+    <script src="../JS/reserva.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -61,19 +61,23 @@
         </ul>
     </div>
     
-    
-
     <div class="div_consecutivo">
-    
-
-        <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded">
-            <label>Seleccione cantidad</label>
-            <button onclick="CalcularMonto()">+</button>
+        <h4>Comprar</h4>
+        <div>
+            <label>Seleccione cantidad de boletos > </label>
+            <button class="btn btn-primary" onclick="CalcularMonto()">Agregar un boleto</button>
             <label id="renderCantidadBoletos"></label>
             <label id="renderCantidad"></label>
-            <label id="renderMonto">Monto a pagar</label>
+        <div>
+            <label>Monto a pagar: $</label>
+            <label id="renderMonto"></label>
+            <input type="hidden" id="cantidadMonto" value="0">
+            <input type="hidden" id="cantidadHiddenBoleto" value="0">
+        </div>
+
+        </div>
+        <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded" style="width: 900px;">
             <label>Vuelo</label>
-            <button>Confirmar compra</button>
             </select>
             <table id="salidasTable" class="table mt-2 table-bordered table-striped">
               <thead>
@@ -86,20 +90,24 @@
                   <th>Estado</th>
                   <th>Puerta</th>
                   <th>Monto</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody id="salidasVuelos">
       
               </tbody>
             </table>
-            <input type="hidden" id="cantidadMonto" value="0">
-            <input type="hidden" id="cantidadHiddenBoleto" value="0">
         </div>
+        <h3>
+            <button class="btn btn-success">Confirmar compra</button>
+        </h3>
     </div>
 
-    <footer class="footer">
-        <h4>Proyecto Vuelos</h4>
-    </footer>
+    <div>
+
+    </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     
    
