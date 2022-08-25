@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../styles.css">
     <script src="../JS/compra.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <title>Comprar</title>
 </head>
 <body>
@@ -98,9 +99,22 @@
               </tbody>
             </table>
         </div>
-        <h3>
-            <button class="btn btn-success">Confirmar compra</button>
-        </h3>
+
+        <!--Captcha Google-->
+        <form>
+            <div class="g-recaptcha" data-sitekey="6Lee56YhAAAAAHIWePjotS5UEKo7xEP2xYtP2pG7" data-callback="captchaVerified"
+            style="margin-left: 0px; margin-top: 0px;"></div>
+            <button class="btn btn-success" id="btn_compra" disabled>Confirmar compra</button>
+        </form>
+        <script>
+            // Verification callback function
+            function captchaVerified() {
+                var btn_compra = document.getElementById('btn_compra');
+                btn_compra.removeAttribute('disabled');
+                btn_compra.style.cursor = 'pointer';
+            }
+        </script>
+
     </div>
 
     <div>
