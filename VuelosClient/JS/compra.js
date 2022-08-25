@@ -1,5 +1,8 @@
 const API_URL = 'http://localhost:5179/api/vuelos/'
 let vuelos = []
+let valor = 0;
+let cantidad = 0
+const btn_compra = document.getElementById('btn_compra');
 
 const getVueloSalidas = () => {
     fetch(API_URL)
@@ -34,9 +37,6 @@ const getVueloSalidas = () => {
 
   getVueloSalidas()
 
-
-
-
 //metodo para calcular el precio
 function CalcularMonto(){
     const valorMonto = parseFloat(document.getElementById('cantidadMonto').value);
@@ -48,8 +48,10 @@ function CalcularMonto(){
     const valorCantidad = parseFloat(document.getElementById('cantidadHiddenBoleto').value) + 1;
     document.getElementById('cantidadHiddenBoleto').value = valorCantidad.toString();
     document.getElementById('renderCantidadBoletos').innerHTML = valorCantidad.toString() + " Boletos";
-    const valor = parseFloat(valorCantidad)*parseFloat(valorMonto);
+    let valorFinal = parseFloat(valorCantidad)*parseFloat(valorMonto);
     document.getElementById('renderMonto').innerHTML = valor.toString();
+    cantidad = valorCantidad
+    valor = valorFinal;
 }
 
 //Seleccionar vuelo
@@ -97,4 +99,24 @@ const cleaveCCV = new Cleave("#cardCcv", {
   blocks: [3],
 });
 
-//Captcha
+btn_compra.addEventListener('click', prueba=()=>{
+  let montoFinal = valor;
+  let usuario = localStorage.getItem('user');
+  let idUsuario = localStorage.getItem('id')
+
+
+  fetch('http://localhost:5179/api/compras', {
+    method:'POST',
+    headers: {
+        'Content-Type':'application/json'
+    },
+    body: JSON.stringify({
+        idUsuario:idUsuario,
+        cantidadBoletos:cantidad,
+        idVuelo:3,
+        monto: montoFinal
+    })
+  })
+  alert('Compra realizada por '+(usuario)+' por un monto total de $'+(montoFinal))
+  window.location.reload()
+})

@@ -39,8 +39,6 @@ const getVueloSalidas = () => {
   getVueloSalidas()
 
 
-
-
 //metodo para calcular el precio
 function CalcularMonto(){
     const valorMonto = parseFloat(document.getElementById('cantidadMontoReserva').value);
