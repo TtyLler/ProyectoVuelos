@@ -25,9 +25,6 @@ const getRegistro = () => {
       }
     })
 }*/
-
-
-
 function registration(e){
 
   const preformDatos = new FormData(form_registro);
@@ -38,6 +35,15 @@ function registration(e){
   const email = document.getElementById("input_correo").value;
   const user = document.getElementById("input_usuarioRegistro").value;
   const password = document.getElementById("input_passRegistro").value;
+  let datos = {
+    nombre: name,
+    apellido1: last_name1,
+    apellido2: last_name2,
+    correo: email,
+    usuario1: user,
+    contrasena: password,
+    rol: 2
+  }
 
   if(!name || !last_name1 || !email || !user || !password ){
     alert('Ingrese todos los datos necesarios!')
@@ -49,17 +55,8 @@ function registration(e){
           'Content-Type':'application/json',
           'Accept':'application/json'
       },
-      body: JSON.stringify({
-        nombre: name,
-        apellido1: last_name1,
-        apellido2: last_name2,
-        correo: email,
-        usuario1: user,
-        constrasena: password,
-        rol: 2
-      })
+      body: JSON.stringify(datos)
     })
-  
     .then( response => response.json())
     .then( data => usuarios.push(data))
     .then(
@@ -69,7 +66,7 @@ function registration(e){
   }
 }
 
-function onSignIn(googleUser) {
+function signIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());

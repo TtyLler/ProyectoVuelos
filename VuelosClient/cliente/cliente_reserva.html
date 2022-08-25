@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../styles.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <title>Reservar</title>
 </head>
 <body>
@@ -60,19 +61,62 @@
         </ul>
     </div>
     
-    <div id="div_transaccion">
+    <div class="div_consecutivo">
         <h4>Reservar</h4>
-        <grid>
-            <h6>País</h6>
-            <select name="País" id="selectPais">
+        <div>
+            <label>Seleccione cantidad de boletos > </label>
+            <button class="btn btn-primary" onclick="CalcularMonto()">Agregar un boleto</button>
+            <label id="renderCantidadBoletoReserva"></label>
+            <label id="renderCantidad"></label>
+        <div>
+            <label>Monto a pagar: $</label>
+            <label id="renderMontoReserva"></label>
+            <input type="hidden" id="cantidadMontoReserva" value="0">
+            <input type="hidden" id="cantidadHiddenBoletoReserva" value="0">
+        </div>
 
+        </div>
+        <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded" style="width: 900px;">
+            <label>Vuelo</label>
             </select>
-        </grid>
+            <table id="salidasTable" class="table mt-2 table-bordered table-striped">
+              <thead>
+                <tr class="text-center">
+                  <th>Vuelo</th>
+                  <th>Aerolinea</th>
+                  <th>Destino</th>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Estado</th>
+                  <th>Puerta</th>
+                  <th>Monto</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="salidasVuelosReserva">
+      
+              </tbody>
+            </table>
+        </div>
+
+            <!--Captcha Google-->
+            <form>
+                <div class="g-recaptcha" data-sitekey="6Lee56YhAAAAAHIWePjotS5UEKo7xEP2xYtP2pG7" data-callback="captchaVerified"
+                style="margin-left: 0px; margin-top: 0px;"></div>
+                <button class="btn btn-success" id="btn_reserva" disabled>Confirmar reserva</button>
+            </form>
+            <script>
+                // Verification callback function
+                function captchaVerified() {
+                    var btn_reserva = document.getElementById('btn_reserva');
+                    btn_reserva.removeAttribute('disabled');
+                    btn_reserva.style.cursor = 'pointer';
+                }
+            </script>
+
     </div>
 
-    <footer class="footer">
-        <h4>Proyecto Vuelos</h4>
-    </footer>
+    <script src="../JS/reserva.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>
