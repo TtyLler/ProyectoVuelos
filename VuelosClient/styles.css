@@ -241,3 +241,8 @@ th{
     padding: 0;
     box-sizing: border-box;
 }
+
+.g-signin2{
+    margin-top: 10px;
+    margin-right: 320px;
+}

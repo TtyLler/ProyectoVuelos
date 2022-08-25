@@ -25,9 +25,6 @@ const getRegistro = () => {
       }
     })
 }*/
-
-
-
 function registration(e){
 
   const preformDatos = new FormData(form_registro);
@@ -44,7 +41,7 @@ function registration(e){
     apellido2: last_name2,
     correo: email,
     usuario1: user,
-    constrasena: password,
+    contrasena: password,
     rol: 2
   }
 
@@ -60,7 +57,6 @@ function registration(e){
       },
       body: JSON.stringify(datos)
     })
-  
     .then( response => response.json())
     .then( data => usuarios.push(data))
     .then(
@@ -70,7 +66,7 @@ function registration(e){
   }
 }
 
-function onSignIn(googleUser) {
+function signIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
