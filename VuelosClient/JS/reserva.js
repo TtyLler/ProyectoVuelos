@@ -72,7 +72,7 @@ function SeleccionarVueloReserva(monto){
     let usuario = localStorage.getItem('user');
     let idUsuario = localStorage.getItem('id')
 
-    function generatePassword() {
+    function generateNumReservacion() {
       var length = 8,
           charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
           retVal = "";
@@ -88,7 +88,7 @@ function SeleccionarVueloReserva(monto){
           'Content-Type':'application/json'
       },
       body: JSON.stringify({
-          numReservacion:generatePassword(),
+          numReservacion:generateNumReservacion(),
           idUsuario:idUsuario,
           cantidadBoletos:cantidad,
           idVuelo:1,
