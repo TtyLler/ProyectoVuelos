@@ -246,3 +246,7 @@ th{
     margin-top: 10px;
     margin-right: 320px;
 }
+
+#btn_registro_cliente{
+    cursor: not-allowed;
+}
