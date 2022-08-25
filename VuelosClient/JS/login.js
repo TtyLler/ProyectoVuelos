@@ -28,7 +28,7 @@ async function validationUser(){
             if(usuario.rol == 1){
                 if(user.value == usuario.usuario1){
                     if(password.value == usuario.contrasena){
-                        
+                        localStorage.setItem('id', usuario.idUsuario);
                         clear()
                         window.open("./admin/mainPage_Admin.html", "_self")
                     }else{

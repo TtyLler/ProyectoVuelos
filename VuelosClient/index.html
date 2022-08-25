@@ -60,6 +60,30 @@
                 <button type="submit" id="btn_registro_cliente">
                     Registrarse
                 </button>
+
+                <form method="post" onsubmit="return submitUserForm();">
+                    <div class="g-recaptcha" data-sitekey="6Lee56YhAAAAAHIWePjotS5UEKo7xEP2xYtP2pG7"
+                    data-callback="verifyCaptcha"></div>
+                    <div id="g-recaptcha-error"></div>
+                    <input type="submit" name="submit" value="Submit" />
+                </form>
+                <script src='https://www.google.com/recaptcha/api.js'></script>
+                <script>
+                var recaptcha_response = '';
+                function submitUserForm() {
+                    if(recaptcha_response.length == 0) {
+                        document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+                        return false;
+                    }
+                    return true;
+                }
+                 
+                function verifyCaptcha(token) {
+                    recaptcha_response = token;
+                    document.getElementById('g-recaptcha-error').innerHTML = '';
+                }
+                </script>
+
                 <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
             </form>
