@@ -96,6 +96,7 @@ function SeleccionarVueloReserva(monto){
       })
     })
     alert('Reserva realizada por '+(usuario)+' por un monto total de $'+(montoFinal))
+    window.location.reload()
   })
 
 
