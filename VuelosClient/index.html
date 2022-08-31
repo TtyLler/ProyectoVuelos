@@ -60,11 +60,11 @@
                 <br>
                 <input type="password" name="input_passRegistro" id="input_passRegistro" placeholder="Contraseña">
                 <br>
-
+                
                 <!--Captcha Google-->
             <form>
                 <div class="g-recaptcha" data-sitekey="6Lee56YhAAAAAHIWePjotS5UEKo7xEP2xYtP2pG7" data-callback="captchaVerified"
-                style="margin-left: 425px; margin-top: 0px;"></div>
+                style="margin-left: 425px; margin-top: 25px;"></div>
                 <button type="submit" id="btn_registro_cliente" disabled>
                     Registrarse
                 </button>
@@ -73,7 +73,7 @@
                 // Verification callback function
                 function captchaVerified() {
                     var btn_registro_cliente = document.getElementById('btn_registro_cliente');
-                    btn_registro_cliente.removeAttribute('btn_registro_cliente');
+                    btn_registro_cliente.removeAttribute('disabled');
                     btn_registro_cliente.style.cursor = 'pointer';
                 }
             </script>
